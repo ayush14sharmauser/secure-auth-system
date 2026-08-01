@@ -4,6 +4,7 @@ services:
     container_name: secure-auth-api
     ports:
       - "5000:5000"
-    env_file:
-      - .env
-    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://postgres:ayush123%40@host.docker.internal:5432/secure_auth_db
+      SECRET_KEY: change_this_to_a_long_random_secret
+      JWT_SECRET_KEY: change_this_to_another_long_random_secret
